@@ -28,8 +28,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: '10px',
     width: 400,
-    // minWidth: 200,
-    // maxWidth: '100%',
     height: 40,
     marginBottom: 10,
     marginLeft: 5,
@@ -41,7 +39,6 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   gradient: {
-    // flex: 1,
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',

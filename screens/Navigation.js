@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import 'react-native-gesture-handler';
@@ -10,14 +10,21 @@ import Home from './Home';
 import AddQuizGroup from './AddQuizGroup';
 import Signup from './Signup';
 import Results from './Results';
+import { setCurrentUser } from '../redux/actions';
 
 const screenOptions = {
   headerShown: false,
 };
 const Tab = createMaterialBottomTabNavigator();
 
-export const SignedInStack = ({ navigation }) => {
+export const SignedInStack = ({ navigation, localUser }) => {
   const { current_user } = useSelector((state) => state.Reducer);
+  const dispatch = useDispatch();
+
+  if (localUser) {
+    dispatch(setCurrentUser(localUser));
+  }
+
   return (
     <NavigationContainer style={styles.container}>
       <Tab.Navigator

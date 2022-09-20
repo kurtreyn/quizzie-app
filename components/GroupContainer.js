@@ -1,13 +1,5 @@
-import React, { useState, usEffect } from 'react';
-import {
-  Text,
-  StyleSheet,
-  View,
-  Dimensions,
-  TouchableHighlight,
-  Pressable,
-} from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+import React from 'react';
+import { Text, StyleSheet, View } from 'react-native';
 
 export default function GroupContainer({ label, id }) {
   return (
@@ -26,9 +18,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginRight: 10,
     marginLeft: 10,
-    // marginTop: 10,
-    // paddingTop: 20,
-    // paddingBottom: 20,
     backgroundColor: '#f7797d',
     borderRadius: 10,
     borderWidth: 2,
@@ -43,12 +32,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: 140,
     height: 108,
-    // flexDirection: 'column',
-    // marginTop: '15%',
-    // marginBottom: '10%',
-    // borderStyle: 'solid',
-    // borderWidth: '2px',
-    // borderColor: 'green',
   },
   textStyle: {
     color: '#fff',

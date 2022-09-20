@@ -37,7 +37,6 @@ export default function Home({ navigation }) {
   };
 
   const runUnsubscribe = () => {
-    dispatch(setQuizReset(false));
     const unsubscribe = db
       .collectionGroup('posts')
       .orderBy('createdAt', 'desc')
@@ -89,14 +88,9 @@ export default function Home({ navigation }) {
 
   useEffect(() => {
     setQuizActive(false);
-    runUnsubscribe();
     dispatch(setQuizReset(false));
+    runUnsubscribe();
   }, [groupLength, quiz_reset]);
-
-  // console.log('current_user', current_user);
-  // console.log('GROUPS', groups);
-  // console.log('active_group', active_group);
-  // console.log('quiz_reset', quiz_reset);
 
   return (
     <View style={styles.homeContainer}>
@@ -198,12 +192,6 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'center',
     marginTop: '5%',
-    // marginBottom: '10%',
-    // width: '100%',
-    // height: '50%',
-    // borderStyle: 'solid',
-    // borderWidth: '2px',
-    // borderColor: 'red',
   },
   textStyle: {
     color: '#fff',

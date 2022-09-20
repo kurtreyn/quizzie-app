@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import Store from './redux/store';
 import 'react-native-gesture-handler';
 import 'expo-dev-client';
-
 import AuthNavigation from './AuthNavigation';
 
 export default function App() {

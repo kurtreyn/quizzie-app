@@ -1,10 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  // Pressable,
-  TouchableOpacity,
-} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import {
@@ -16,7 +10,6 @@ import AnswerButton from './AnswerButton';
 import HorizontalButton from './HorizontalButton';
 
 export default function Quiz({ navigation, subjectName, group }) {
-  //   const { final_results } = useSelector((state) => state.Reducer);
   const dispatch = useDispatch();
   const [options, setOptions] = useState([]);
   const [disabled, setDisabled] = useState(false);
@@ -38,7 +31,6 @@ export default function Quiz({ navigation, subjectName, group }) {
   };
 
   const runQuiz = (currentObj) => {
-    // console.log(`index is: ${index}, length is: ${post_q_a.length}`);
     if (index === post_q_a.length) {
       setDisabled(true);
       return;
@@ -50,21 +42,15 @@ export default function Quiz({ navigation, subjectName, group }) {
     let answerOptions = [];
     let idx = wrongAnswers.indexOf(correct_answer);
 
-    // console.log('wrongAnswers was', wrongAnswers);
-
     if (idx > -1) {
       wrongAnswers.splice(idx, 1);
     }
     shuffle(wrongAnswers);
 
-    // console.log('wrongAnswers is', wrongAnswers);
     for (let i = 0; i < limit; i++) {
       answerOptions.push(wrongAnswers[i]);
     }
-    // console.log(answerOptions);
-    // wrongAnswers.forEach((answer) => answerOptions.push(answer));
     answerOptions.push(correct_answer);
-    // console.log(answerOptions);
 
     let qSet = {
       question: question,
@@ -78,9 +64,6 @@ export default function Quiz({ navigation, subjectName, group }) {
   };
 
   const handleAnswer = (answer) => {
-    // console.log('score init:', score);
-    // console.log('answer', answer);
-    // console.log('rightAnswer', rightAnswer);
     if (answer === rightAnswer) {
       setScore(score + 1);
     }
@@ -122,22 +105,6 @@ export default function Quiz({ navigation, subjectName, group }) {
       dispatch(setPointsPossible(pointsPossible));
     }
   }, [disabled]);
-
-  //   console.log('group', group);
-  //   console.log('subjectName', subjectName);
-  // console.log('post_q_a', post_q_a);
-  //   console.log('questions', questions);
-  //   console.log('answers', answers);
-  //   console.log('options', options);
-  // console.log('score', score);
-  //   console.log('index:', index);
-  //   console.log('results', results);
-  //   console.log('final_results', final_results);
-
-  //   const handleShowResults = () => {
-  //     console.log('showing results');
-  //     ;
-  //   };
 
   return (
     <View style={styles.quizContainer}>
@@ -218,8 +185,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
-    // width: '100%',
-    // height: '100%',
   },
   header: {
     display: 'flex',
@@ -262,9 +227,6 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     width: '100%',
     marginTop: 20,
-    // marginLeft: 10,
-    // marginRight: 10,
-    // height: '70%',
   },
   buttonContainer: {
     display: 'flex',
@@ -272,13 +234,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
-    // flexWrap: 'wrap',
-    // position: 'absolute',
-    // bottom: 80,
     marginTop: 100,
-    // marginLeft: 10,
-    // marginRight: 10,
-    // height: '70%',
   },
   answerText: {
     color: '#000',
