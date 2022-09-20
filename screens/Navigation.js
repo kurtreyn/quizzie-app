@@ -10,6 +10,8 @@ import Home from './Home';
 import AddQuizGroup from './AddQuizGroup';
 import Signup from './Signup';
 import Results from './Results';
+import { Provider } from 'react-redux';
+import Store from '../redux/store';
 import { setCurrentUser } from '../redux/actions';
 
 const screenOptions = {
@@ -17,13 +19,8 @@ const screenOptions = {
 };
 const Tab = createMaterialBottomTabNavigator();
 
-export const SignedInStack = ({ navigation, localUser }) => {
+export const SignedInStack = ({ navigation }) => {
   const { current_user } = useSelector((state) => state.Reducer);
-  const dispatch = useDispatch();
-
-  if (localUser) {
-    dispatch(setCurrentUser(localUser));
-  }
 
   return (
     <NavigationContainer style={styles.container}>
@@ -115,8 +112,8 @@ export const SignedInStack = ({ navigation, localUser }) => {
 export const SignedOutStack = ({ navigation }) => (
   <NavigationContainer>
     <Tab.Navigator initialRouteName="Login" screenOptions={screenOptions}>
-      <Tab.Screen name="Login" component={Login} />
-      <Tab.Screen name="Signup" component={Signup} />
+      <Tab.Screen navigation={navigation} name="Login" component={Login} />
+      <Tab.Screen navigation={navigation} name="Signup" component={Signup} />
     </Tab.Navigator>
   </NavigationContainer>
 );
