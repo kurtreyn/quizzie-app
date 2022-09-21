@@ -1,14 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {
-  Text,
-  StyleSheet,
-  View,
-  Alert,
-  KeyboardAvoidingView,
-  Keyboard,
-  Platform,
-  TouchableWithoutFeedback,
-} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { setHasGroupName, setGroupName } from '../redux/actions';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -25,8 +16,6 @@ export default function AddQuizGroup({ navigation }) {
   const [answer, setAnswer] = useState('');
   const [number, setNumber] = useState(0);
   const [groupSet, setGroupSet] = useState([]);
-  // const [previousQuestions, setPreviousQuestions] = useState([]);
-  // let questionAnswerArr = [];
 
   const handleGroupNameStatus = () => {
     dispatch(setHasGroupName(true));
@@ -106,15 +95,7 @@ export default function AddQuizGroup({ navigation }) {
     getUserName();
   }, []);
 
-  // console.log('currentLoggedInUser', currentLoggedInUser);
-  // console.log('previousQuestions', previousQuestions);
-  // console.log('GROUPSET', groupSet);
-
   return (
-    // <KeyboardAvoidingView
-    //   behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-    // >
-    //   <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
     <View style={styles.addQuizGroupContainer}>
       <LinearGradient
         colors={['#2980B9', '#6DD5FA', '#FFFFFF']}
@@ -140,8 +121,6 @@ export default function AddQuizGroup({ navigation }) {
         </View>
       </LinearGradient>
     </View>
-    //   </TouchableWithoutFeedback>
-    // </KeyboardAvoidingView>
   );
 }
 
@@ -164,9 +143,5 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     marginTop: '15%',
-    // marginBottom: '10%',
-    // borderStyle: 'solid',
-    // borderWidth: '2px',
-    // borderColor: 'red',
   },
 });

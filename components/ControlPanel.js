@@ -1,14 +1,12 @@
 import React from 'react';
 import {
   StyleSheet,
-  // Text,
   View,
   TouchableWithoutFeedback,
   Keyboard,
   KeyboardAvoidingView,
   Platform,
   Pressable,
-  // TouchableOpacity,
 } from 'react-native';
 import HorizontalButton from './HorizontalButton';
 
@@ -66,9 +64,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'column',
     height: '50%',
-    // borderStyle: 'solid',
-    // borderWidth: '2px',
-    // borderColor: 'green',
   },
   addTopMargin: {
     marginTop: 100,

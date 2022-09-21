@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import 'react-native-gesture-handler';
@@ -10,6 +10,9 @@ import Home from './Home';
 import AddQuizGroup from './AddQuizGroup';
 import Signup from './Signup';
 import Results from './Results';
+import { Provider } from 'react-redux';
+import Store from '../redux/store';
+import { setCurrentUser } from '../redux/actions';
 
 const screenOptions = {
   headerShown: false,
@@ -18,6 +21,7 @@ const Tab = createMaterialBottomTabNavigator();
 
 export const SignedInStack = ({ navigation }) => {
   const { current_user } = useSelector((state) => state.Reducer);
+
   return (
     <NavigationContainer style={styles.container}>
       <Tab.Navigator
@@ -108,8 +112,8 @@ export const SignedInStack = ({ navigation }) => {
 export const SignedOutStack = ({ navigation }) => (
   <NavigationContainer>
     <Tab.Navigator initialRouteName="Login" screenOptions={screenOptions}>
-      <Tab.Screen name="Login" component={Login} />
-      <Tab.Screen name="Signup" component={Signup} />
+      <Tab.Screen navigation={navigation} name="Login" component={Login} />
+      <Tab.Screen navigation={navigation} name="Signup" component={Signup} />
     </Tab.Navigator>
   </NavigationContainer>
 );
