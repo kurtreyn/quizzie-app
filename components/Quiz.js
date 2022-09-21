@@ -126,6 +126,7 @@ export default function Quiz({ navigation, subjectName, group }) {
               <View>
                 {option.answerOptions[0] && (
                   <AnswerButton
+                    key={'01'}
                     answer={option.answerOptions[0]}
                     onPress={() => handleAnswer(option.answerOptions[0])}
                     disable={disabled}
@@ -133,6 +134,7 @@ export default function Quiz({ navigation, subjectName, group }) {
                 )}
                 {option.answerOptions[1] && (
                   <AnswerButton
+                    key={'02'}
                     answer={option.answerOptions[1]}
                     onPress={() => handleAnswer(option.answerOptions[1])}
                     disable={disabled}
@@ -141,6 +143,7 @@ export default function Quiz({ navigation, subjectName, group }) {
 
                 {option.answerOptions[2] && (
                   <AnswerButton
+                    key={'03'}
                     answer={option.answerOptions[2]}
                     onPress={() => handleAnswer(option.answerOptions[2])}
                     disable={disabled}
@@ -149,6 +152,7 @@ export default function Quiz({ navigation, subjectName, group }) {
 
                 {option.answerOptions[3] && (
                   <AnswerButton
+                    key={'04'}
                     answer={option.answerOptions[3]}
                     onPress={() => handleAnswer(option.answerOptions[3])}
                     disable={disabled}
